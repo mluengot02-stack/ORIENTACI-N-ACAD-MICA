@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dossier interactivo de orientación académica y profesional para 4.º de ESO.">
+<title>¿Y después de 4.º de ESO? | Dossier interactivo</title>
+<style>
+:root{
+  --navy:#17365d;--teal:#007c91;--pale:#eef5f8;--ink:#243447;
+  --muted:#637487;--line:#d9e2ea;--white:#fff;--gold:#f2b84b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f3f6f9;color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+header{background:linear-gradient(130deg,var(--navy),#205b78);color:white;padding:38px 20px 30px}
+.header-inner,.layout{max-width:1120px;margin:auto}
+.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:750;color:#bfe9ef}
+h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:.45rem 0}
+header p{max-width:700px;color:#e3f2f5;margin:.7rem 0 0}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.pill{border:1px solid #ffffff55;border-radius:999px;padding:5px 11px;font-size:.82rem}
+.layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:24px;padding:24px 18px 60px}
+nav{position:sticky;top:16px;align-self:start;background:white;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 4px 18px #17365d0b}
+nav strong{display:block;color:var(--navy);margin-bottom:10px}
+nav a{display:block;text-decoration:none;color:#3e5368;padding:8px 9px;border-radius:8px;font-size:.92rem}
+nav a:hover,nav a:focus{background:var(--pale);color:var(--teal)}
+main{min-width:0}
+.card{background:white;border:1px solid var(--line);border-radius:16px;padding:clamp(18px,3vw,30px);margin-bottom:20px;box-shadow:0 5px 20px #17365d08}
+h2{color:var(--navy);font-size:1.55rem;margin:0 0 8px}
+h3{color:var(--teal);font-size:1.08rem;margin:24px 0 10px}
+.intro{color:var(--muted);margin-top:0}
+.session-tag{display:inline-block;background:#e6f5f6;color:#006c7d;border-radius:999px;padding:4px 10px;font-size:.78rem;font-weight:750;margin-bottom:10px}
+label{display:block;font-weight:650;color:#334b62;margin:13px 0 6px}
+input[type=text],input[type=url],textarea,select{width:100%;border:1px solid #cbd6df;border-radius:9px;padding:11px 12px;font:inherit;color:var(--ink);background:white}
+textarea{min-height:86px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:3px solid #007c9126;border-color:var(--teal)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:9px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:white;font-weight:650}
+td textarea{min-height:64px;border:0;padding:5px;background:#fbfcfd}
+.callout{background:var(--pale);border-left:4px solid var(--teal);padding:13px 15px;border-radius:7px;margin:14px 0}
+.links a{color:#006f83;overflow-wrap:anywhere}
+button,.button{border:0;border-radius:9px;padding:10px 15px;background:var(--navy);color:white;font:inherit;font-weight:650;cursor:pointer;text-decoration:none;display:inline-block}
+button:hover,.button:hover{filter:brightness(1.12)}
+button.secondary{background:#e8eef3;color:var(--navy);border:1px solid var(--line)}
+button.teal{background:var(--teal)}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
+.small{font-size:.86rem;color:var(--muted)}
+.progress-wrap{height:9px;background:#e4ebf0;border-radius:99px;overflow:hidden;margin:10px 0}
+#progress{height:100%;width:0;background:var(--teal);transition:width .2s}
+.checklist label{font-weight:450;display:flex;align-items:flex-start;gap:9px}
+.checklist input{margin-top:5px}
+footer{text-align:center;color:var(--muted);padding:20px;font-size:.85rem}
+@media(max-width:800px){.layout{grid-template-columns:1fr}nav{position:static}nav .navlinks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}.grid2,.grid3{grid-template-columns:1fr}}
+@media print{
+ body{background:white;font-size:11pt}
+ header{padding:18px;background:white!important;color:var(--navy);border-bottom:2px solid var(--navy)}
+ header p,.kicker{color:var(--muted)}
+ .layout{display:block;padding:0}
+ nav,.actions,.progress-wrap,.save-status,footer{display:none!important}
+ .card{box-shadow:none;border:0;border-bottom:1px solid #bbb;border-radius:0;break-inside:avoid;padding:12px 0;margin:0}
+ input,textarea,select{border:0!important;border-bottom:1px solid #aaa!important;border-radius:0!important;padding:4px!important}
+ textarea{min-height:45px}
+ a{color:#111}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="kicker">Atención Educativa · 4.º ESO · Aula del Futuro</div>
+    <h1>¿Y después de<br>4.º de ESO?</h1>
+    <p>Investiga, compara y diseña tu futuro. Un dossier para conocer tus opciones académicas y profesionales y tomar decisiones con información.</p>
+    <div class="pills"><span class="pill">5 sesiones</span><span class="pill">Investigación digital</span><span class="pill">Trabajo individual y cooperativo</span></div>
+  </div>
+</header>
+
+<div class="layout">
+<nav aria-label="Índice del dossier">
+  <strong>Índice del dossier</strong>
+  <div class="navlinks">
+    <a href="#inicio">Antes de empezar</a>
+    <a href="#s1">Sesión 1 · Me conozco</a>
+    <a href="#s2">Sesión 2 · Opciones</a>
+    <a href="#s3">Sesión 3 · Profesión</a>
+    <a href="#s4">Sesión 4 · Plan A y B</a>
+    <a href="#s5">Sesión 5 · Presento</a>
+    <a href="#fuentes">Fuentes y entrega</a>
+  </div>
+  <div class="callout small"><b>Consejo:</b> tus respuestas se guardan automáticamente en este navegador. Descarga una copia de seguridad al terminar cada sesión.</div>
+  <div class="small">Progreso del dossier</div>
+  <div class="progress-wrap"><div id="progress"></div></div>
+  <div id="progressText" class="small">0 campos completados</div>
+</nav>
+
+<main>
+<section class="card" id="inicio">
+  <h2>Antes de empezar</h2>
+  <p class="intro">No tienes que decidir hoy qué harás durante toda tu vida. El objetivo es conocer posibilidades, contrastar información y descubrir qué opciones pueden encajar contigo.</p>
+  <div class="grid2">
+    <div><label for="nombre">Nombre y apellidos</label><input id="nombre" data-save type="text" placeholder="Escribe tu nombre"></div>
+    <div><label for="grupo">Grupo</label><input id="grupo" data-save type="text" placeholder="Ej.: 4.º A"></div>
+    <div><label for="equipo">Equipo de trabajo</label><input id="equipo" data-save type="text" placeholder="Nombre o número del equipo"></div>
+    <div><label for="fecha">Fecha de inicio</label><input id="fecha" data-save type="text" placeholder="Día / mes / año"></div>
+  </div>
+  <h3>¿Qué vas a conseguir?</h3>
+  <ul>
+    <li>Conocer las alternativas académicas y profesionales al terminar la ESO.</li>
+    <li>Investigar estudios, centros educativos y profesiones.</li>
+    <li>Aprender a localizar información fiable y citar las fuentes.</li>
+    <li>Relacionar tus intereses y habilidades con posibles itinerarios.</li>
+    <li>Comparar opciones y justificar una decisión provisional.</li>
+  </ul>
+  <div class="callout"><b>Cómo trabajar:</b> completa las actividades en el ordenador. Trabaja con tu equipo en las tareas comunes, pero responde individualmente a las preguntas personales. Explica la información con tus propias palabras y anota siempre las fuentes.</div>
+  <h3>Plan de trabajo</h3>
+  <table><thead><tr><th>Sesión</th><th>Tarea</th><th>Producto</th></tr></thead><tbody>
+    <tr><td>1</td><td>Me conozco y exploro mis intereses</td><td>Perfil personal</td></tr>
+    <tr><td>2</td><td>Investigo las opciones después de la ESO</td><td>Mapa de itinerarios</td></tr>
+    <tr><td>3</td><td>Investigo una profesión</td><td>Ficha profesional</td></tr>
+    <tr><td>4</td><td>Diseño y comparo dos itinerarios</td><td>Plan A y Plan B</td></tr>
+    <tr><td>5</td><td>Presento y reflexiono</td><td>Presentación y reflexión final</td></tr>
+  </tbody></table>
+  <div class="actions"><button class="teal" type="button" onclick="saveNow()">Guardar ahora</button><button class="secondary" type="button" onclick="exportData()">Descargar copia de respuestas</button></div>
+  <p class="small save-status" id="saveStatus" aria-live="polite">El guardado automático está activado en este navegador.</p>
+</section>
+
+<section class="card" id="s1">
+  <span class="session-tag">SESIÓN 1 · 50 MINUTOS</span>
+  <h2>Me conozco: ¿qué me interesa?</h2>
+  <p class="intro">Antes de elegir un camino, conviene saber qué te gusta, qué se te da bien y qué valoras en un trabajo. No hay respuestas correctas o incorrectas.</p>
+  <h3>Actividad 1. Mi punto de partida</h3>
+  <label>1. ¿Qué asignaturas o actividades del instituto te gustan más? ¿Por qué?</label><textarea data-save></textarea>
+  <label>2. ¿Qué tareas se te dan bien? (Explicar, organizar, reparar, crear, calcular, cuidar, investigar…)</label><textarea data-save></textarea>
+  <label>3. ¿Qué actividades no te gustan o te cuestan especialmente?</label><textarea data-save></textarea>
+  <h3>Actividad 2. ¿Cómo prefiero trabajar?</h3>
+  <table><thead><tr><th>Me identifico más con…</th><th>Mi elección y explicación</th></tr></thead><tbody>
+    <tr><td>Trabajar con personas / trabajar con datos u objetos</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>Actividad práctica / estudio más teórico</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>Trabajar en equipo / trabajar de forma autónoma</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>Rutina estable / tareas variadas</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>Crear e imaginar / seguir procedimientos claros</td><td><textarea data-save></textarea></td></tr>
+  </tbody></table>
+  <h3>Actividad 3. Profesiones que me despiertan curiosidad</h3>
+  <table><thead><tr><th>Profesión</th><th>¿Qué me atrae?</th><th>¿Qué quiero averiguar?</th></tr></thead><tbody>
+    <tr><td><input data-save type="text"></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td><input data-save type="text"></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td><input data-save type="text"></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+  </tbody></table>
+  <label>4. ¿Qué te preocupa o te genera dudas sobre tu futuro después de 4.º de ESO?</label><textarea data-save></textarea>
+  <label>5. ¿Qué te gustaría haber descubierto al terminar este proyecto?</label><textarea data-save></textarea>
+  <label>Conclusión: resume en tres frases cómo te encuentras ante la decisión de qué hacer después de la ESO.</label><textarea data-save></textarea>
+</section>
+
+<section class="card" id="s2">
+  <span class="session-tag">SESIÓN 2 · 50 MINUTOS</span>
+  <h2>Investigo mis opciones después de la ESO</h2>
+  <p class="intro">Investiga las alternativas con tu equipo. Después completa tu propia comparación. Comprueba que la información esté actualizada para el curso correspondiente.</p>
+  <div class="callout links"><b>Fuentes recomendadas:</b><br>
+    · <a href="https://www.todofp.es/" target="_blank" rel="noopener">TodoFP</a> — ciclos, familias profesionales y requisitos.<br>
+    · <a href="https://www.educarex.es/" target="_blank" rel="noopener">Educarex</a> — oferta educativa de Extremadura.<br>
+    · <a href="https://educagob.educacionfpydeportes.gob.es/" target="_blank" rel="noopener">Ministerio de Educación</a> — información general del sistema educativo.<br>
+    · Webs oficiales de institutos y centros de FP de Extremadura — oferta concreta.
+  </div>
+  <h3>Actividad 1. Completa la tabla de opciones</h3>
+  <table><thead><tr><th>Opción</th><th>¿En qué consiste?</th><th>Duración / características</th><th>¿Qué permite hacer después?</th></tr></thead><tbody>
+    <tr><td><b>Bachillerato</b></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td><b>CFGM</b></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td><b>Enseñanzas artísticas o deportivas</b></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td><b>Otras alternativas si no obtengo el título</b></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+  </tbody></table>
+  <h3>Actividad 2. Conozco mejor el Bachillerato</h3>
+  <label>1. ¿Qué modalidades de Bachillerato existen actualmente?</label><textarea data-save></textarea>
+  <label>2. ¿Qué materias o modalidad podrían relacionarse con tus intereses?</label><textarea data-save></textarea>
+  <label>3. ¿Qué opciones tienes al terminar Bachillerato?</label><textarea data-save></textarea>
+  <h3>Actividad 3. Conozco mejor la Formación Profesional</h3>
+  <label>4. ¿Qué es una familia profesional? Escribe tres ejemplos.</label><textarea data-save></textarea>
+  <label>5. ¿Cómo se accede a un ciclo de Grado Medio desde la ESO?</label><textarea data-save></textarea>
+  <label>6. ¿Qué posibilidades existen después de terminar un Grado Medio?</label><textarea data-save></textarea>
+  <h3>Actividad 4. Mi mapa de opciones</h3>
+  <p>Crea con Canva, PowerPoint, Word o una herramienta similar un esquema visual que muestre distintas opciones después de 4.º de ESO y sus posibles continuaciones.</p>
+  <label>Enlace a mi mapa de itinerarios (si lo has creado online)</label><input data-save type="url" placeholder="https://">
+  <label>¿Qué opción no conocías y te ha llamado la atención?</label><textarea data-save></textarea>
+  <label>Escribe dos fuentes oficiales que hayas consultado (nombre y enlace).</label><textarea data-save></textarea>
+</section>
+
+<section class="card" id="s3">
+  <span class="session-tag">SESIÓN 3 · 50 MINUTOS</span>
+  <h2>Investigo una profesión</h2>
+  <p class="intro">Elige una profesión que te interese. No tiene que ser tu elección definitiva: investiga para conocerla mejor.</p>
+  <label>Profesión elegida</label><input data-save type="text">
+  <label>¿Por qué la has elegido? ¿Qué sabes ya sobre ella?</label><textarea data-save></textarea>
+  <h3>Actividad 1. Ficha de investigación profesional</h3>
+  <table><thead><tr><th>Pregunta</th><th>Información investigada (con tus palabras)</th></tr></thead><tbody>
+    <tr><td>¿En qué consiste esta profesión?</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Qué tareas realiza?</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Dónde puede trabajar?</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Qué estudios o titulaciones se necesitan?</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Cuánto tiempo dura la formación?</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Qué habilidades y cualidades son importantes?</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Qué herramientas, tecnologías o materiales utiliza?</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Qué aspectos pueden ser difíciles o exigentes?</td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Qué posibilidades de empleo ofrece?</td><td><textarea data-save></textarea></td></tr>
+  </tbody></table>
+  <h3>Actividad 2. ¿Dónde podría estudiar?</h3>
+  <table><thead><tr><th>Estudio o ciclo</th><th>Centro</th><th>Localidad</th><th>Enlace oficial</th></tr></thead><tbody>
+    <tr><td><input data-save type="text"></td><td><input data-save type="text"></td><td><input data-save type="text"></td><td><input data-save type="url"></td></tr>
+    <tr><td><input data-save type="text"></td><td><input data-save type="text"></td><td><input data-save type="text"></td><td><input data-save type="url"></td></tr>
+  </tbody></table>
+  <label>¿Has encontrado esta formación en Extremadura? Explica dónde.</label><textarea data-save></textarea>
+  <label>¿Hay requisitos de acceso, nota de corte o proceso de admisión que debas conocer?</label><textarea data-save></textarea>
+  <h3>Actividad 3. Compruebo mis fuentes</h3>
+  <table><thead><tr><th>Fuente consultada</th><th>¿Es oficial o fiable?</th><th>¿Qué información he obtenido?</th></tr></thead><tbody>
+    <tr><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+  </tbody></table>
+  <label>¿Qué dato te ha sorprendido más? ¿Te interesa más o menos esta profesión después de investigar? Explica por qué.</label><textarea data-save></textarea>
+</section>
+
+<section class="card" id="s4">
+  <span class="session-tag">SESIÓN 4 · 50 MINUTOS</span>
+  <h2>Diseño mis itinerarios: Plan A y Plan B</h2>
+  <p class="intro">Relaciona tus intereses con opciones reales. Diseña dos caminos posibles y compáralos. Tu decisión puede cambiar con el tiempo.</p>
+  <h3>Actividad 1. Mi Plan A</h3>
+  <p>Describe el itinerario que más te atrae actualmente. Incluye los pasos desde el final de 4.º de ESO hasta la formación o profesión que te interesa.</p>
+  <table><thead><tr><th>Paso</th><th>Estudio o decisión</th><th>Centro o lugar</th><th>Duración aproximada</th></tr></thead><tbody>
+    <tr><td>1. Después de 4.º ESO</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><input data-save type="text"></td></tr>
+    <tr><td>2. Siguiente etapa</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><input data-save type="text"></td></tr>
+    <tr><td>3. Continuación / especialización</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><input data-save type="text"></td></tr>
+    <tr><td>4. Objetivo profesional</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><input data-save type="text"></td></tr>
+  </tbody></table>
+  <label>¿Por qué este itinerario encaja contigo?</label><textarea data-save></textarea>
+  <h3>Actividad 2. Mi Plan B</h3>
+  <p>Diseña una segunda posibilidad: otra modalidad, otro ciclo o una vía distinta para acercarte a un objetivo.</p>
+  <table><thead><tr><th>Paso</th><th>Estudio o decisión</th><th>Centro o lugar</th><th>Duración aproximada</th></tr></thead><tbody>
+    <tr><td>1. Después de 4.º ESO</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><input data-save type="text"></td></tr>
+    <tr><td>2. Siguiente etapa</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><input data-save type="text"></td></tr>
+    <tr><td>3. Continuación / especialización</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><input data-save type="text"></td></tr>
+    <tr><td>4. Objetivo profesional</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td><td><input data-save type="text"></td></tr>
+  </tbody></table>
+  <label>¿En qué se diferencia del Plan A?</label><textarea data-save></textarea>
+  <h3>Actividad 3. Comparo mis opciones</h3>
+  <table><thead><tr><th>Criterio</th><th>Plan A</th><th>Plan B</th></tr></thead><tbody>
+    <tr><td>¿Me interesa?</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Se ajusta a mis habilidades?</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Qué esfuerzo o dificultades implica?</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Qué oportunidades me ofrece?</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+    <tr><td>¿Qué tendría que averiguar todavía?</td><td><textarea data-save></textarea></td><td><textarea data-save></textarea></td></tr>
+  </tbody></table>
+  <label>¿Qué plan elegirías hoy? Justifica tu respuesta.</label><textarea data-save></textarea>
+  <label>¿A quién podrías pedir orientación para tomar esta decisión?</label><textarea data-save></textarea>
+</section>
+
+<section class="card" id="s5">
+  <span class="session-tag">SESIÓN 5 · 50 MINUTOS</span>
+  <h2>Presento mi investigación y miro al futuro</h2>
+  <p class="intro">Comparte lo que has descubierto y valora qué has aprendido. No es necesario tener una decisión definitiva.</p>
+  <h3>Actividad 1. Preparo la presentación de equipo</h3>
+  <p>Prepara una presentación breve (3-5 diapositivas o una infografía) que incluya:</p>
+  <ul><li>Las principales opciones después de 4.º de ESO.</li><li>Las profesiones investigadas por el equipo.</li><li>Al menos dos fuentes oficiales consultadas.</li><li>Una conclusión o consejo para otros alumnos.</li></ul>
+  <label>Enlace a la presentación del equipo</label><input data-save type="url" placeholder="https://">
+  <h3>Actividad 2. Mi reflexión individual</h3>
+  <label>1. ¿Qué has aprendido que no sabías antes?</label><textarea data-save></textarea>
+  <label>2. ¿Qué opción académica o profesional te interesa ahora?</label><textarea data-save></textarea>
+  <label>3. ¿Qué dudas sigues teniendo?</label><textarea data-save></textarea>
+  <label>4. ¿Qué pasos concretos puedes dar para informarte mejor?</label><textarea data-save></textarea>
+  <label>5. ¿Ha cambiado tu idea inicial sobre lo que harás después de la ESO? Explica cómo.</label><textarea data-save></textarea>
+  <h3>Actividad 3. Autoevaluación</h3>
+  <div class="checklist">
+    <label><input data-save type="checkbox"> He participado y aprovechado el tiempo de trabajo.</label>
+    <label><input data-save type="checkbox"> He buscado información en fuentes fiables.</label>
+    <label><input data-save type="checkbox"> He comprendido las principales opciones después de la ESO.</label>
+    <label><input data-save type="checkbox"> He investigado una profesión con suficiente detalle.</label>
+    <label><input data-save type="checkbox"> He comparado al menos dos itinerarios posibles.</label>
+    <label><input data-save type="checkbox"> He colaborado con mi equipo y respetado sus aportaciones.</label>
+  </div>
+  <label>¿Qué has aportado tú al trabajo del equipo?</label><textarea data-save></textarea>
+  <label>¿Qué mejorarías si volvieras a hacer este proyecto?</label><textarea data-save></textarea>
+  <div class="callout"><b>Recuerda:</b> no necesitas tener toda tu vida decidida. Necesitas conocer tus opciones y dar el siguiente paso con información.</div>
+</section>
+
+<section class="card" id="fuentes">
+  <h2>Registro de fuentes y entrega</h2>
+  <p class="intro">Anota las páginas, documentos o personas que te han proporcionado información. Evita entregar datos sin comprobar.</p>
+  <table><thead><tr><th>N.º</th><th>Título o entidad</th><th>Enlace o referencia</th><th>¿Qué información he utilizado?</th></tr></thead><tbody>
+    <tr><td>1</td><td><input data-save type="text"></td><td><input data-save type="url"></td><td><textarea data-save></textarea></td></tr>
+    <tr><td>2</td><td><input data-save type="text"></td><td><input data-save type="url"></td><td><textarea data-save></textarea></td></tr>
+    <tr><td>3</td><td><input data-save type="text"></td><td><input data-save type="url"></td><td><textarea data-save></textarea></td></tr>
+    <tr><td>4</td><td><input data-save type="text"></td><td><input data-save type="url"></td><td><textarea data-save></textarea></td></tr>
+    <tr><td>5</td><td><input data-save type="text"></td><td><input data-save type="url"></td><td><textarea data-save></textarea></td></tr>
+  </tbody></table>
+  <h3>Antes de entregar</h3>
+  <div class="checklist">
+    <label><input data-save type="checkbox"> He completado las actividades de las cinco sesiones.</label>
+    <label><input data-save type="checkbox"> He revisado la ortografía y la presentación.</label>
+    <label><input data-save type="checkbox"> He explicado la información con mis propias palabras.</label>
+    <label><input data-save type="checkbox"> He incluido enlaces o referencias de las fuentes consultadas.</label>
+    <label><input data-save type="checkbox"> He descargado una copia de mis respuestas.</label>
+  </div>
+  <div class="actions">
+    <button class="teal" type="button" onclick="saveNow()">Guardar respuestas</button>
+    <button type="button" onclick="exportData()">Descargar copia de seguridad (.json)</button>
+    <button class="secondary" type="button" onclick="window.print()">Imprimir / Guardar como PDF</button>
+    <button class="secondary" type="button" onclick="clearData()">Borrar todas mis respuestas</button>
+  </div>
+  <p class="small">Importante: las respuestas se guardan en el navegador y dispositivo que estés utilizando; no se envían al profesor ni a GitHub. Descarga el archivo de copia de seguridad para conservar tu trabajo o continuar en otro equipo. No borres los datos del navegador hasta haber guardado una copia.</p>
+</section>
+</main>
+</div>
+<footer>Proyecto de investigación · Atención Educativa · 4.º ESO · Aula del Futuro</footer>
+
+<script>
+(() => {
+  const KEY = "dossier-futuro-4eso-v1";
+  const fields = () => [...document.querySelectorAll("[data-save]")];
+
+  function restore(){
+    try{
+      const saved = JSON.parse(localStorage.getItem(KEY) || "[]");
+      fields().forEach((el,i)=>{
+        if(saved[i] !== undefined){
+          if(el.type === "checkbox") el.checked = Boolean(saved[i]);
+          else el.value = saved[i];
+        }
+      });
+    }catch(e){ console.warn("No se pudieron recuperar las respuestas guardadas.",e); }
+    updateProgress();
+  }
+  function save(){
+    const values = fields().map(el => el.type === "checkbox" ? el.checked : el.value);
+    try{
+      localStorage.setItem(KEY,JSON.stringify(values));
+      const status=document.getElementById("saveStatus");
+      if(status) status.textContent="Respuestas guardadas en este navegador.";
+    }catch(e){
+      const status=document.getElementById("saveStatus");
+      if(status) status.textContent="No se ha podido guardar automáticamente. Descarga una copia de seguridad.";
+    }
+    updateProgress();
+  }
+  function updateProgress(){
+    const all=fields();
+    const done=all.filter(el=>el.type==="checkbox" ? el.checked : el.value.trim()!=="").length;
+    const pct=all.length ? Math.round(done/all.length*100) : 0;
+    document.getElementById("progress").style.width=pct+"%";
+    document.getElementById("progressText").textContent=done+" de "+all.length+" campos completados ("+pct+" %)";
+  }
+  window.saveNow=save;
+  window.exportData=()=>{
+    save();
+    const data={
+      dossier:"¿Y después de 4.º de ESO?",
+      fechaDescarga:new Date().toISOString(),
+      respuestas:fields().map((el,i)=>({
+        numero:i+1,
+        tipo:el.type || el.tagName.toLowerCase(),
+        valor:el.type==="checkbox" ? el.checked : el.value
+      }))
+    };
+    const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    const name=(document.getElementById("nombre").value || "alumno").trim().replace(/[^a-z0-9_-]+/gi,"_");
+    a.href=url;a.download="dossier_futuro_"+name+".json";a.click();
+    URL.revokeObjectURL(url);
+  };
+  window.clearData=()=>{
+    if(confirm("¿Seguro que quieres borrar todas tus respuestas guardadas en este navegador? Descarga antes una copia si quieres conservarlas.")){
+      localStorage.removeItem(KEY);
+      fields().forEach(el=>{if(el.type==="checkbox")el.checked=false;else el.value="";});
+      updateProgress();
+      const status=document.getElementById("saveStatus");
+      if(status)status.textContent="Se han borrado las respuestas guardadas en este navegador.";
+    }
+  };
+  document.addEventListener("input",e=>{if(e.target.matches("[data-save]"))save();});
+  document.addEventListener("change",e=>{if(e.target.matches("[data-save]"))save();});
+  restore();
+})();
+</script>
+</body>
+</html>
